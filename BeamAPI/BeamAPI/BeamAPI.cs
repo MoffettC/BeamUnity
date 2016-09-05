@@ -42,17 +42,18 @@ public class BeamAPI {
 
         //    this.executor = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
         //ThreadPool pool = new ThreadPool();
+        // ThreadPool.QueueUserWorkItem(f.ThreadPoolCallback, i);
 
-    //    this.http = new BeamHttpClient(this, httpUsername, httpPassword, oauthToken);
-    //    this.services = new ServiceManager<>();
+        //    this.http = new BeamHttpClient(this, httpUsername, httpPassword, oauthToken);
+        //    this.services = new ServiceManager<>();
 
-    //    this.register(new UsersService(this));
-    //    this.register(new ChatService(this));
-    //    this.register(new EmotesService(this));
-    //    this.register(new ChannelsService(this));
-    //    this.register(new TypesService(this));
-    //    this.register(new TetrisService(this));
-    //    this.register(new JWTService(this));
+        //    this.register(new UsersService(this));
+        //    this.register(new ChatService(this));
+        //    this.register(new EmotesService(this));
+        //    this.register(new ChannelsService(this));
+        //    this.register(new TypesService(this));
+        //    this.register(new TetrisService(this));
+        //    this.register(new JWTService(this));
     }
 
 
