@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 public class BeamAPI {
     //string json = new JsonConvert.SerializeObject();
-
     public readonly Uri basePath;
 
     //public Gson gson;
     //public final BeamHttpClient http;
     //public final ListeningExecutorService executor;
-    //protected final ServiceManager<AbstractBeamService> services;
+    protected readonly ServiceManager<AbstractBeamService> services;
 
     private static readonly Uri DEFAULT_BASE_PATH = new Uri("https://beam.pro/api/v1/");
 
@@ -41,11 +40,10 @@ public class BeamAPI {
         //.create();
 
         //    this.executor = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
-        //ThreadPool pool = new ThreadPool();
         // ThreadPool.QueueUserWorkItem(f.ThreadPoolCallback, i);
 
         //    this.http = new BeamHttpClient(this, httpUsername, httpPassword, oauthToken);
-        //    this.services = new ServiceManager<>();
+            this.services = new ServiceManager<AbstractBeamService>();
 
         //    this.register(new UsersService(this));
         //    this.register(new ChatService(this));
@@ -57,15 +55,16 @@ public class BeamAPI {
     }
 
 
-    //public <T extends AbstractBeamService> T use(Class<T> service) {
-    //    return this.services.get(service);
-    //}
+    public <T extends AbstractBeamService> T use(Class<T> service) {
+        return this.services.get(service);
+    }
 
-    //public boolean register(AbstractBeamService service) {
-    //    return this.services.register(service);
-    //}
-    //public void setUserAgent(String agent) {
-    //    this.http.setUserAgent(agent);
-    //}
+    public bool register(AbstractBeamService service) {
+        return this.services.register(service);
+    }
+
+    public void setUserAgent(String agent) {
+        this.http.setUserAgent(agent);
+    }
 
 }
