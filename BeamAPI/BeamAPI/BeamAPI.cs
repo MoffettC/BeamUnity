@@ -8,11 +8,11 @@ using System.Threading;
 using System.Threading.Tasks;
 
 public class BeamAPI {
-    //string json = new JsonConvert.SerializeObject();
     public readonly Uri basePath;
 
     //public Gson gson;
-    //public final BeamHttpClient http;
+    //public IPEndPoint test = new IPEndPoint(); //JSON type to convert
+    public readonly BeamHttpClient http;
     //public final ListeningExecutorService executor;
     protected readonly ServiceManager<AbstractBeamService> services;
 
@@ -34,15 +34,16 @@ public class BeamAPI {
         }
 
         //this.gson = new GsonBuilder()
-        //        .registerTypeAdapter(InetSocketAddress.class, new IPEndPoint())  //public IPEndPoint test = new IPEndPoint(); JSON type to convert
+        //        .registerTypeAdapter(InetSocketAddress.class, new IPEndPoint())  
         //        .registerTypeAdapter(URI.class, new URIAdapter())     //UriAdapter(by beam) JSON type to convert
         //        .registerTypeAdapter(Date.class, DateAdapter.v1())    //DateTime JSON type to convert
         //.create();
+        //string json = new JsonConvert.SerializeObject();
 
         //    this.executor = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
-        // ThreadPool.QueueUserWorkItem(f.ThreadPoolCallback, i);
+        //ThreadPool.QueueUserWorkItem(f.ThreadPoolCallback, i);
 
-        //    this.http = new BeamHttpClient(this, httpUsername, httpPassword, oauthToken);
+        this.http = new BeamHttpClient(this, httpUsername, httpPassword, oauthToken);
             this.services = new ServiceManager<AbstractBeamService>();
 
         //    this.register(new UsersService(this));
@@ -55,7 +56,8 @@ public class BeamAPI {
     }
 
 
-    public <T extends AbstractBeamService> T use(Class<T> service) {
+   // public <T : AbstractBeamService> T use(Class<T> service) { //Java generic
+    public T use<T>(T service) where T : AbstractBeamService {
         return this.services.get(service);
     }
 

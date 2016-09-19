@@ -1,1 +1,3 @@
 C:\Program Files (x86)\Repos\BeamAPI\BeamAPI\BeamAPI\bin\Debug\BeamAPI.exe.config
+C:\Program Files (x86)\Repos\BeamPro\BeamAPI\BeamAPI\bin\Debug\BeamAPI.exe.config
+C:\Program Files (x86)\Repos\BeamPro\BeamAPI\BeamAPI\obj\Debug\BeamAPI.csprojResolveAssemblyReference.cache

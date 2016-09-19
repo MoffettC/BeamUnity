@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public class ServiceManager<T> : AbstractService{
     protected readonly HashSet<T> services = new HashSet<T>();
 
-    //@SuppressWarnings("unchecked")
+    //@SuppressWarnings("unchecked")    //JAVA
     //public (V : <T>) V get(Class<V> type) {
     //    foreach (T service in this.services) {
     //        if (service.GetType == type) {
@@ -17,13 +17,13 @@ public class ServiceManager<T> : AbstractService{
     //    return null;
     //}
 
-    public T get(Class<V> type) {
+    public V get<V>(V type) where V : T {
         foreach (T service in this.services) {
-            if (service.GetType == type) {
+            if (service.Equals(type)) {
                 return (V)service;
             }
         }
-        return null;
+        return default(V);
     }
 
     public bool register(T service) {
